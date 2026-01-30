@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jillow - Upcycled Denim Pillows</title>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --denim-dark: #2C4A6B;
+            --denim-medium: #4A6B8A;
+            --denim-light: #7A9BC4;
+            --cream: #F5F1E8;
+            --black: #1a1a1a;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Karla', sans-serif;
+            line-height: 1.6;
+            color: var(--black);
+            background: var(--cream);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--denim-dark) 0%, var(--denim-medium) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 40px 20px;
+        }
+
+        /* Denim texture */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(255,255,255,0.03) 3px, rgba(255,255,255,0.03) 6px),
+                repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.05) 3px, rgba(0,0,0,0.05) 6px);
+            opacity: 0.7;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-family: 'Abril Fatface', serif;
+            font-size: 80px;
+            color: var(--white);
+            line-height: 0.9;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-text .tagline {
+            font-size: 24px;
+            color: var(--cream);
+            margin-bottom: 30px;
+            font-weight: 600;
+            animation: slideInLeft 0.8s ease-out 0.2s both;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: var(--white);
+            margin-bottom: 40px;
+            line-height: 1.8;
+            animation: slideInLeft 0.8s ease-out 0.4s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--cream);
+            color: var(--denim-dark);
+            padding: 16px 40px;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            border: 3px solid var(--cream);
+            animation: slideInLeft 0.8s ease-out 0.6s both;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: var(--cream);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: slideInRight 0.8s ease-out 0.4s both;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 20px 20px 0px rgba(0,0,0,0.2);
+            border: 4px solid var(--white);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 20px;
+            background: var(--white);
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Abril Fatface', serif;
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--denim-dark);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: var(--cream);
+            padding: 40px 30px;
+            border-left: 6px solid var(--denim-medium);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--denim-dark);
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: var(--black);
+            line-height: 1.7;
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 20px;
+            background: var(--denim-light);
+            color: var(--white);
+        }
+
+        .about-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-family: 'Abril Fatface', serif;
+            font-size: 48px;
+            margin-bottom: 30px;
+        }
+
+        .about p {
+            font-size: 20px;
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 20px;
+            background: var(--cream);
+        }
+
+        .contact-container {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-family: 'Abril Fatface', serif;
+            font-size: 48px;
+            margin-bottom: 30px;
+            color: var(--denim-dark);
+        }
+
+        .contact p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            color: var(--black);
+        }
+
+        .contact-info {
+            background: var(--white);
+            padding: 50px;
+            border: 3px solid var(--denim-dark);
+            box-shadow: 10px 10px 0px var(--denim-light);
+        }
+
+        .email-link {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--denim-dark);
+            text-decoration: none;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        .email-link:hover {
+            color: var(--denim-medium);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--denim-dark);
+            color: var(--white);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 16px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 56px;
+            }
+
+            .hero-text .tagline {
+                font-size: 20px;
+            }
+
+            .hero-text p {
+                font-size: 16px;
+            }
+
+            .hero-image img {
+                margin: 0 auto;
+                display: block;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact h2, .about h2 {
+                font-size: 36px;
+            }
+
+            .contact-info {
+                padding: 30px;
+            }
+
+            .email-link {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>JILLOW</h1>
+                <div class="tagline">Jean + Pillow = Comfort Reimagined</div>
+                <p>Handcrafted, custom-sized pillows made from 100% cotton denim. Quality comfort made just for you.</p>
+                <a href="#contact" class="cta-button">Get Your Jillow</a>
+            </div>
+            <div class="hero-image">
+                <img src="data:image/png;base64," alt="Jillow Pillow" id="heroImg">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="features-container">
+            <h2 class="section-title">Why Choose Jillow?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">👕</div>
+                    <h3>Quality Denim</h3>
+                    <p>Made from premium cotton denim sourced online. Durable, comfortable materials in every pillow.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✂️</div>
+                    <h3>Custom Sized</h3>
+                    <p>Every Jillow is made to order in the size you need. Perfect for any space, any style.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧵</div>
+                    <h3>Hand Sewn</h3>
+                    <p>Carefully crafted by students with attention to detail and quality in every stitch.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💯</div>
+                    <h3>100% Cotton Denim</h3>
+                    <p>Durable, comfortable, and naturally breathable. Built to last and get better with age.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-container">
+            <h2>Our Story</h2>
+            <p>Jillow was born in an entrepreneurship class where creativity meets craftsmanship. We wanted to create something unique and functional using quality denim fabric.</p>
+            <p>Each Jillow is handcrafted by students who believe in quality workmanship and attention to detail. When you buy a Jillow, you're not just getting a pillow—you're supporting student entrepreneurs and getting a one-of-a-kind product made with care.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <h2>Ready to Order?</h2>
+            <p>Get in touch to discuss your custom Jillow. Let us know your size preferences and we'll create the perfect pillow for you.</p>
+            <div class="contact-info">
+                <a href="mailto:jillowahs@gmail.com" class="email-link">jillowahs@gmail.com</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Jillow. Handcrafted with care by student entrepreneurs.</p>
+    </footer>
+
+    <script>
+        // Embed the base64 image
+        const base64Image = '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';
+        document.getElementById('heroImg').src = 'data:image/png;base64,' + base64Image;
+
+        // Smooth scrolling for CTA button
+        document.querySelector('.cta-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#contact').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        });
+    </script>
+</body>
+</html>
